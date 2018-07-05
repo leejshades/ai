@@ -49,8 +49,8 @@
       <file leaf-file-name="uwsgi_conf.ini" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uwsgi_conf.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -65,6 +65,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ai/settings.py" />
+        <option value="$PROJECT_DIR$/uwsgi_conf.ini" />
       </list>
     </option>
   </component>
@@ -265,8 +266,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uwsgi_conf.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
           <folding />
         </state>
       </provider>
