@@ -46,42 +46,42 @@ class UploadView(View):
         auth = cloudsight.SimpleAuth('8h9ANlD_Gy8PkvMhUXUn1Q')
         api = cloudsight.API(auth)
         InputFile = img.name
-        response = api.image_request(img, InputFile, {'image_request[locale]': 'en-US', })
+        response = api.image_request(img, InputFile, {'image_request[locale]': 'zh-CN','language':'zh-CN' })
         status = api.wait(response['token'], timeout=30)
         userImg = UserImg(
             name = status['name'],
             url = status['url'],
         )
-        fanyi_res = requests.get('http://fanyi.youdao.com/openapi.do?keyfrom=11pegasus11&key=273646050&type=data&doctype=json&version=1.1&q='+status['name'])
-        json_data = json.loads(fanyi_res.content)
-        userImg.translate = json_data['translation']
+        data = {
+            'name':status['name'],
+            'url':status['url'],
+            'code':200,
+        }
         userImg.save()
-        return  HttpResponse(fanyi_res,content_type="application/json")
-        # return  HttpResponse(str(status['name']))
+        return  HttpResponse(json.dumps(data),content_type="application/json;charset=utf-8")
 
 
-@csrf_exempt
-def uploadImg(request):
-    if request.method == 'POST':
-        new_img = IMG(
-            img=request.FILES.get('img'),
-            name = request.FILES.get('img').name
-        )
+class UploadImgView(View):
+    @csrf_exempt
+    def get(self,request):
+        return render(request, 'img_tem/uploadimg.html')
+
+    @csrf_exempt
+    def post(self,request):
         img = request.FILES.get('img')
         if img is None:
             return HttpResponse('You need upload a picture!')
         auth = cloudsight.SimpleAuth('8h9ANlD_Gy8PkvMhUXUn1Q')
         api = cloudsight.API(auth)
         InputFile = img.name
-        response = api.image_request(img, InputFile, {'image_request[locale]': 'en-US', })
+        response = api.image_request(img, InputFile, {'image_request[locale]': 'zh-CN','image_request[language]':'zh-CN'})
         status = api.wait(response['token'], timeout=30)
-        print(status['name'])
-        new_img.url = status['url']
-        new_img.save()
-        fanyi_res = requests.get('http://fanyi.youdao.com/openapi.do?keyfrom=11pegasus11&key=273646050&type=data&doctype=json&version=1.1&q='+status['name'])
-        return  HttpResponse(fanyi_res,content_type="application/json")
-    else:
-        return render(request, 'img_tem/uploadimg.html')
+        data = {
+            'name':status['name'],
+            'url':status['url'],
+            'code':200,
+        }
+        return  HttpResponse(json.dumps(data), content_type='application/json;charset=utf-8')
 
 @csrf_exempt
 def showImg(request):

@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.static import serve
 from ai.settings import STATIC_ROOT,MEDIA_ROOT
-from sight.views import UploadView,IndexView,WeixinView
+from sight.views import UploadView,IndexView,WeixinView,UploadImgView
 from sight import views
 
 urlpatterns = [
@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': STATIC_ROOT}),
     url(r'^test/', UploadView.as_view(),name='upload'),
-    url(r'^upload', views.uploadImg),
+    url(r'^upload', UploadImgView.as_view(),name='upload_local'),
     url(r'^show', views.showImg),
     url(r'^weixin',WeixinView.as_view(),name='weixin_token')
 
