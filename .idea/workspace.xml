@@ -32,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/sight/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="664">
@@ -77,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ai/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-382">
-              <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+            <state relative-caret-position="878">
+              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -111,10 +111,10 @@
         <option value="$USER_HOME$/Envs/cloudsight/Lib/site-packages/googletrans/client.py" />
         <option value="$PROJECT_DIR$/apps/sight/models.py" />
         <option value="$PROJECT_DIR$/ai/urls.py" />
-        <option value="$PROJECT_DIR$/ai/settings.py" />
         <option value="$PROJECT_DIR$/apps/sight/index.js" />
         <option value="$PROJECT_DIR$/apps/sight/migrations/index.wxml" />
         <option value="$PROJECT_DIR$/apps/sight/views.py" />
+        <option value="$PROJECT_DIR$/ai/settings.py" />
       </list>
     </option>
   </component>
@@ -508,14 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ai/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-382">
-          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/sight/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
@@ -560,6 +552,14 @@
             <element signature="e#15#50#0" expanded="true" />
             <element signature="e#409#970#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ai/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="878">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
