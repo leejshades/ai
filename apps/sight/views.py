@@ -49,7 +49,7 @@ class UploadView(View):
         response = api.image_request(img, InputFile, {'image_request[locale]': 'en-US', })
         status = api.wait(response['token'], timeout=30)
         fanyi_res = requests.get('http://fanyi.youdao.com/openapi.do?keyfrom=11pegasus11&key=273646050&type=data&doctype=json&version=1.1&q='+status['name'])
-        return  HttpResponse(fanyi_res)
+        return  HttpResponse(fanyi_res,content_type="application/json")
         # return  HttpResponse(str(status['name']))
 
 
@@ -68,11 +68,11 @@ def uploadImg(request):
         InputFile = img.name
         response = api.image_request(img, InputFile, {'image_request[locale]': 'en-US', })
         status = api.wait(response['token'], timeout=30)
+        print(status['name'])
         new_img.url = status['url']
         new_img.save()
         fanyi_res = requests.get('http://fanyi.youdao.com/openapi.do?keyfrom=11pegasus11&key=273646050&type=data&doctype=json&version=1.1&q='+status['name'])
-
-        return  HttpResponse(fanyi_res)
+        return  HttpResponse(fanyi_res,content_type="application/json")
     else:
         return render(request, 'img_tem/uploadimg.html')
 
