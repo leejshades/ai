@@ -17,10 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.static import serve
 from ai.settings import STATIC_ROOT,MEDIA_ROOT
-from sight.views import UploadView
+from sight.views import UploadView,IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^/',IndexView.as_view(),name='index'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': STATIC_ROOT}),
     url(r'^test/', UploadView.as_view(),name='upload'),
