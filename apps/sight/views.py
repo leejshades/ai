@@ -9,6 +9,7 @@ import time
 import os
 import json
 from .models import IMG,WeixinToken
+import requests
 
 class IndexView(View):
     def get(self,request):
@@ -44,10 +45,12 @@ class UploadView(View):
         auth = cloudsight.SimpleAuth('8h9ANlD_Gy8PkvMhUXUn1Q')
         api = cloudsight.API(auth)
         InputFile = img.name
-
         response = api.image_request(img, InputFile, {'image_request[locale]': 'en-US', })
         status = api.wait(response['token'], timeout=30)
-        return  HttpResponse(str(status['name']))
+        fanyi_res = requests.get('http://fanyi.youdao.com/openapi.do?keyfrom=11pegasus11&key=273646050&type=data&doctype=json&version=1.1&q='+status['name'])
+        return  HttpResponse(fanyi_res)
+        # return  HttpResponse(str(status['name']))
+
 
 @csrf_exempt
 def uploadImg(request):
@@ -66,7 +69,9 @@ def uploadImg(request):
         status = api.wait(response['token'], timeout=30)
         new_img.url = status['url']
         new_img.save()
-        return  HttpResponse(str(status['name']))
+        fanyi_res = requests.get('http://fanyi.youdao.com/openapi.do?keyfrom=11pegasus11&key=273646050&type=data&doctype=json&version=1.1&q='+status['name'])
+
+        return  HttpResponse(fanyi_res)
     else:
         return render(request, 'img_tem/uploadimg.html')
 
