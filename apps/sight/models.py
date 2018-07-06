@@ -25,3 +25,13 @@ class WeixinToken(models.Model):
         verbose_name_plural = verbose_name
     def __str__(self):
         return self.echostr
+
+class UserImg(models.Model):
+    name = models.CharField(max_length=500,default='')
+    url = models.CharField(max_length=500,default='')
+    translate = models.CharField(max_length=500,default='')
+    class Meta:
+        verbose_name = u'图片信息'
+        verbose_name_plural = verbose_name
+    def __str__(self):
+        return self.name

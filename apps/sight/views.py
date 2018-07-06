@@ -8,7 +8,7 @@ import cloudsight
 import time
 import os
 import json
-from .models import IMG,WeixinToken
+from .models import IMG,WeixinToken,UserImg
 import requests
 
 class IndexView(View):
@@ -48,7 +48,14 @@ class UploadView(View):
         InputFile = img.name
         response = api.image_request(img, InputFile, {'image_request[locale]': 'en-US', })
         status = api.wait(response['token'], timeout=30)
+        userImg = UserImg(
+            name = status['name'],
+            url = status['url'],
+        )
         fanyi_res = requests.get('http://fanyi.youdao.com/openapi.do?keyfrom=11pegasus11&key=273646050&type=data&doctype=json&version=1.1&q='+status['name'])
+        json_data = json.loads(fanyi_res.content)
+        userImg.translate = json_data['translation']
+        userImg.save()
         return  HttpResponse(fanyi_res,content_type="application/json")
         # return  HttpResponse(str(status['name']))
 
