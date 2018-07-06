@@ -7,13 +7,23 @@ from django.views.generic.base import View
 import cloudsight
 import time
 import os
+import json
 from .models import IMG
 
 class IndexView(View):
     def get(self,request):
         return HttpResponse("it's ok!")
 
-
+class WeixinView(View):
+    def get(self,request):
+        signature = request.GET.get('signature','')
+        timestamp = request.GET.get('timestamp', '')
+        nonce = request.GET.get('nonce', '')
+        echostr = request.GET.get('echostr', '')
+        data = {
+            'echostr':echostr,
+        }
+        return HttpResponse(json.dumps(data), content_type="application/json")
 class UploadView(View):
 
     def get(self,request):

@@ -13,3 +13,15 @@ class IMG(models.Model):
         verbose_name_plural = verbose_name
     def __str__(self):
         return self.name
+
+class WeixinToken(models.Model):
+    signature = models.CharField(max_length=500,default='')
+    timestamp = models.CharField(max_length=500,default='')
+    nonce = models.CharField(max_length=500,default='')
+    echostr = models.CharField(max_length=500,default='')
+    token = models.CharField(max_length=500,default='')
+    class Meta:
+        verbose_name = u'微信Token'
+        verbose_name_plural = verbose_name
+    def __str__(self):
+        return self.echostr
