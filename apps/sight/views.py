@@ -7,7 +7,6 @@ from django.views.generic.base import View
 import cloudsight
 import time
 import os
-from googletrans import Translator
 from .models import IMG
 
 class IndexView(View):
