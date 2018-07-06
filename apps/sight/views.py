@@ -38,6 +38,7 @@ class UploadView(View):
     def get(self,request):
         return HttpResponse('this is get method')
 
+    @csrf_exempt
     def post(self,request):
         img = request.FILES.get('picture')
         if img is None:
