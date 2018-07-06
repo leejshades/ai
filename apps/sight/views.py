@@ -8,7 +8,7 @@ import cloudsight
 import time
 import os
 import json
-from .models import IMG
+from .models import IMG,WeixinToken
 
 class IndexView(View):
     def get(self,request):
@@ -16,10 +16,18 @@ class IndexView(View):
 
 class WeixinView(View):
     def get(self,request):
+
         signature = request.GET.get('signature','')
         timestamp = request.GET.get('timestamp', '')
         nonce = request.GET.get('nonce', '')
         echostr = request.GET.get('echostr', '')
+        new_weixin_token = WeixinToken(
+            signature = signature ,
+            timestamp = timestamp,
+            nonce = nonce,
+            echostr = echostr,
+        )
+        new_weixin_token.save()
         data = {
             'echostr':echostr,
         }
