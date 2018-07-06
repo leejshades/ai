@@ -31,7 +31,7 @@ class WeixinView(View):
         data = {
             'echostr':echostr,
         }
-        return HttpResponse(json.dumps(data), content_type="application/json")
+        return HttpResponse(echostr, content_type="application/json")
 class UploadView(View):
 
     def get(self,request):
