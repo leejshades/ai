@@ -7,7 +7,7 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     img_arr:[],
-    name_img:[],
+    name_api:[],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -71,13 +71,13 @@ Page({
             var data = res.data
             var json_data = JSON.parse(res.data)
             that.setData({
-              name_img: that.data.name_img.concat(json_data['name'])
+              name_api: that.data.name_api.concat(json_data['name']),
+              length_api:that.data.name_api.length,
             })
-            console.log(name_img[0])
-            wx.showModal({
-              title: "信息",
-              content: json_data['name'],
-            })
+            // wx.showModal({
+            //   title: "信息",
+            //   content: json_data['name'],
+            // })
           }
           
         })
@@ -85,7 +85,7 @@ Page({
           title: '图片识别中...',
           icon: 'loading',
           mask: true,
-          duration: 10000
+          duration: 13000
         })
 
       }
