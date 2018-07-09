@@ -46,7 +46,7 @@ class UploadView(View):
         auth = cloudsight.SimpleAuth('8h9ANlD_Gy8PkvMhUXUn1Q')
         api = cloudsight.API(auth)
         InputFile = img.name
-        response = api.image_request(img, InputFile, {'image_request[locale]': 'zh-CN','language':'zh-CN' })
+        response = api.image_request(img, InputFile, {'image_request[locale]': 'zh-CN','image_request[language]':'zh-CN' })
         status = api.wait(response['token'], timeout=30)
         userImg = UserImg(
             name = status['name'],

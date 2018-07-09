@@ -6,6 +6,8 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    img_arr:[],
+    name_img:[],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -56,6 +58,9 @@ Page({
     var mask_value = true
     wx.chooseImage({
       success: function (res) {
+        that.setData({
+          img_arr: that.data.img_arr.concat(res.tempFilePaths) 
+        })
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
           url: 'https://ai.kilig.com.cn/test/', 
@@ -63,10 +68,12 @@ Page({
           name: 'picture',
 
           success: function (res) {
-
             var data = res.data
             var json_data = JSON.parse(res.data)
-
+            that.setData({
+              name_img: that.data.name_img.concat(json_data['name'])
+            })
+            console.log(name_img[0])
             wx.showModal({
               title: "信息",
               content: json_data['name'],
