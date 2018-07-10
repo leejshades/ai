@@ -9,12 +9,13 @@ import time
 import os
 import json
 from .models import IMG,WeixinToken,UserImg
-import requests
+from django.shortcuts import render
 
 class IndexView(View):
     def get(self,request):
-        return HttpResponse("it's ok!")
-
+        return render(request, 'AI/index.html', {
+            'code': 200,
+        })
 class WeixinView(View):
     def get(self,request):
 
