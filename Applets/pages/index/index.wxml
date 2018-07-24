@@ -2,12 +2,14 @@
 <view class="container">
   <view class="userinfo">
     <block >
-      <image wx:if="{{img_arr.length==0}}" src='https://ai.kilig.com.cn/media/ac7dba0960ccaf206d6dbcb533aa3949.jpg' 
-style="width:400rpx; height:400rpx;"></image>
-<image wx:else src="{{img_arr[length_api]}}"></image>
-      <text wx:if="{{img_arr.length==0}}" >Cristiano Ronaldo</text>
-      <text wx:else>{{name_api[length_api]}}</text>
-    </block>
+
+      <image wx:if="{{imgUrl}}" src='{{imgUrl}}'></image>
+      <image wx:else    src='https://ai.kilig.com.cn/media/ac7dba0960ccaf206d6dbcb533aa3949.jpg' 
+      style="width:400rpx; height:400rpx;"></image>
+      <text wx:if="{{imgUrl}}">{{name_img}}</text>
+      <text wx:else>Cristiano Ronaldo</text>
+      <!-- <image wx:if="{{imgUrl}}"src='{{imgUrl}}'></image> -->
+      </block>
   </view>
             <button wx:if="{{img_arr.length==0}}" type="primary" bindtap="bindChooseImage">我也试试</button>
             <button wx:else type="primary" bindtap="bindChooseImage">我再试试</button>

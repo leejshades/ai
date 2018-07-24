@@ -58,8 +58,10 @@ Page({
     var mask_value = true
     wx.chooseImage({
       success: function (res) {
+        var tempFilePaths = res.tempFilePaths;
         that.setData({
-          img_arr: that.data.img_arr.concat(res.tempFilePaths) 
+          img_arr: that.data.img_arr.concat(res.tempFilePaths),
+          imgUrl:tempFilePaths,
         })
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
@@ -72,12 +74,9 @@ Page({
             var json_data = JSON.parse(res.data)
             that.setData({
               name_api: that.data.name_api.concat(json_data['name']),
+              name_img:json_data['name'],
               length_api:that.data.name_api.length,
             })
-            // wx.showModal({
-            //   title: "信息",
-            //   content: json_data['name'],
-            // })
           }
           
         })
@@ -85,7 +84,7 @@ Page({
           title: '图片识别中...',
           icon: 'loading',
           mask: true,
-          duration: 13000
+          duration: 15000
         })
 
       }
