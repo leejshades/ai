@@ -44,7 +44,8 @@ class UploadView(View):
         img = request.FILES.get('picture')
         if img is None:
             return HttpResponse('You need upload a picture!')
-        auth = cloudsight.SimpleAuth('8h9ANlD_Gy8PkvMhUXUn1Q')
+        auth = cloudsight.SimpleAuth('nSmkfLGwl4-yW1s-swKoXA')
+        # 8u3iemtYYiIcFaZOK1E4QA
         api = cloudsight.API(auth)
         InputFile = img.name
         response = api.image_request(img, InputFile, {'image_request[locale]': 'zh-CN','image_request[language]':'zh-CN' })
@@ -72,17 +73,19 @@ class UploadImgView(View):
         img = request.FILES.get('img')
         if img is None:
             return HttpResponse('You need upload a picture!')
-        auth = cloudsight.SimpleAuth('8h9ANlD_Gy8PkvMhUXUn1Q')
+        auth = cloudsight.SimpleAuth('nSmkfLGwl4-yW1s-swKoXA')
         api = cloudsight.API(auth)
         InputFile = img.name
+        print(InputFile)
         response = api.image_request(img, InputFile, {'image_request[locale]': 'zh-CN','image_request[language]':'zh-CN'})
+        print(response)
         status = api.wait(response['token'], timeout=30)
         data = {
             'name':status['name'],
             'url':status['url'],
             'code':200,
         }
-        return  HttpResponse(json.dumps(data), content_type='application/json;charset=utf-8')
+        return HttpResponse(json.dumps(data),content_type='application/json;charset=utf-8')
 
 @csrf_exempt
 def showImg(request):
