@@ -44,7 +44,7 @@ class UploadView(View):
         img = request.FILES.get('picture')
         if img is None:
             return HttpResponse('You need upload a picture!')
-        auth = cloudsight.SimpleAuth('nSmkfLGwl4-yW1s-swKoXA')
+        auth = cloudsight.SimpleAuth('nHo9nAczgUTzB6pLiCv1UA')
         # 8u3iemtYYiIcFaZOK1E4QA
         api = cloudsight.API(auth)
         InputFile = img.name
