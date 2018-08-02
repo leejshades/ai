@@ -13,4 +13,6 @@
   </view>
             <button wx:if="{{img_arr.length==0}}" type="primary" bindtap="bindChooseImage">我也试试</button>
             <button wx:else type="primary" bindtap="bindChooseImage">我再试试</button>
+            <ad unit-id="adunit-aac7267256f5fc9d"></ad>
+
 </view>

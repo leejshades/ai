@@ -44,7 +44,7 @@ class UploadView(View):
         img = request.FILES.get('picture')
         if img is None:
             return HttpResponse('You need upload a picture!')
-        auth = cloudsight.SimpleAuth('1bRy8uWYdSP9iErp-lImYg')
+        auth = cloudsight.SimpleAuth('wslbEXDJIZNwAWW3BOP0g')
         api = cloudsight.API(auth)
         InputFile = img.name
         response = api.image_request(img, InputFile, {'image_request[locale]': 'zh-CN','image_request[language]':'zh-CN' })
@@ -72,7 +72,7 @@ class UploadImgView(View):
         img = request.FILES.get('img')
         if img is None:
             return HttpResponse('You need upload a picture!')
-        auth = cloudsight.SimpleAuth('1bRy8uWYdSP9iErp-lImYg')
+        auth = cloudsight.SimpleAuth('bbzL7Oh6D2L1krnQZ5OfKg')
         api = cloudsight.API(auth)
         InputFile = img.name
         print(InputFile)

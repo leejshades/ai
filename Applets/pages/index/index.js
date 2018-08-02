@@ -84,7 +84,7 @@ Page({
           title: '图片识别中...',
           icon: 'loading',
           mask: true,
-          duration: 15000
+          duration: 25000
         })
 
       }
